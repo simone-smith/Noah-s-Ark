@@ -15,6 +15,15 @@ class Animal
 
   end
 
+  def self.add(female_animal, male_animal)
+    if ENV['ENVIRONMENT'] == 'test'
+      connection = PG.connect(dbname: 'noahs_ark_test')
+    else
+      connection = PG.connect(dbname: 'noahs_ark')
+    end
+    connection.exec("INSERT INTO animals (animal_1, animal_2) VALUES('#{female_animal}', '#{male_animal}')")
+  end
+
   private
 
   def self.join_arrays(animal_1_array, animal_2_array)

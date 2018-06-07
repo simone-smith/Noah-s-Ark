@@ -10,12 +10,11 @@ describe Animal do
     end
   end
 
-  # describe '.add' do
-  #   it "adds an animal to the database" do
-  #     Animal.add('Leopard_female', 'Leopard_male')
-  #     expect(Animal.view).to include 'Leopard_male'
-  #     expect(Animal.view).to include 'Leopard_female'
-  #
-  #   end
-  #end
+  describe '.add' do
+    it "adds an animal to the database" do
+      Animal.add('Leopard_female', 'Leopard_male')
+      expect(Animal.view).to include 'Leopard_male'
+      expect(Animal.view).to include 'Leopard_female'
+    end
+  end
 end
