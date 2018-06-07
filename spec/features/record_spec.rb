@@ -1,8 +1,9 @@
 feature 'Animals board the ark' do
-  scenario 'I can keep a record of animals' do
+  scenario 'animals can board the ark and a confirmation message is displayed' do
     visit('/')
-    fill_in('animal_1', with: 'Capybara_female')
-    fill_in('animal_2', with: 'Capybara_male')
+    fill_in('female_animal', with: 'Capybara_female')
+    fill_in('male_animal', with: 'Capybara_male')
+    click_button 'Board the ark'
     expect(page).to have_content 'Animals safely stowed in the ark!'
   end
 end
