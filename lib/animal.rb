@@ -28,7 +28,7 @@ class Animal
 
   def self.join_arrays(animal_1_array, animal_2_array)
     final_array = []
-    for n in 0..animal_1_array.size
+    for n in 0...animal_1_array.size
       final_array << animal_1_array[n]
       final_array << animal_2_array[n]
     end
