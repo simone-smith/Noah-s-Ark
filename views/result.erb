@@ -1,2 +1,6 @@
 <h1>Animals safely stowed in the ark!</h1>
-<%="#{@female_animal}, #{@male_animal}"%>
+<%="#{@animals}"%>
+
+<form action='/pair' method='post'>
+  <input type='submit' value='Add another pair'/>
+</form>

@@ -1,4 +1,5 @@
 require 'sinatra/base'
+require './lib/animal'
 
 class NoahsArk < Sinatra::Base
   enable :sessions
@@ -8,14 +9,16 @@ class NoahsArk < Sinatra::Base
   end
 
   post '/ark' do
-    session[:female_animal] = params[:female_animal]
-    session[:male_animal] = params[:male_animal]
+    Animal.add(params['female_animal'], params['male_animal'])
     redirect('/result')
   end
 
+  post '/pair' do
+    redirect('/')
+  end
+
   get '/result' do
-    @female_animal = session[:female_animal]
-    @male_animal = session[:male_animal]
+    @animals = Animal.view
     erb :result
   end
 
