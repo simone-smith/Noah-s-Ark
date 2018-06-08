@@ -1,5 +1,9 @@
 <h1>Animals safely stowed in the ark!</h1>
-<%="#{@animals}"%>
+<ul>
+ <% @animals.each_slice(2) do |animal| %>
+   <li><%= "#{animal[0]}, #{animal[1]}"%></li>
+ <% end %>
+</ul>
 
 <form action='/pair' method='post'>
   <input type='submit' value='Add another pair'/>
