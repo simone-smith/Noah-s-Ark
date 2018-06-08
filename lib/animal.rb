@@ -9,10 +9,10 @@ class Animal
     end
 
     result = connection.exec("SELECT * FROM animals")
+    id_array = result.map { |animal| animal['id']}
     animal_1_array = result.map { |animal| animal['animal_1']}
     animal_2_array = result.map { |animal| animal['animal_2']}
-    join_arrays(animal_1_array, animal_2_array)
-
+    join_arrays(id_array, animal_1_array, animal_2_array)
   end
 
   def self.add(animal_1, animal_2)
@@ -26,11 +26,13 @@ class Animal
 
   private
 
-  def self.join_arrays(animal_1_array, animal_2_array)
+  def self.join_arrays(id_array, animal_1_array, animal_2_array)
     final_array = []
     for n in 0...animal_1_array.size
-      final_array << animal_1_array[n]
-      final_array << animal_2_array[n]
+      final_array << []
+      final_array[n] << id_array[n]
+      final_array[n] << animal_1_array[n]
+      final_array[n] << animal_2_array[n]
     end
     final_array
   end

@@ -17,3 +17,10 @@ def and_add_rabbits
   fill_in('male_animal', with: 'Rabbit_male')
   click_button 'Board the ark'
 end
+
+def add_aardwolves
+  visit('/')
+  fill_in('female_animal', with: 'Aardwolf_female')
+  fill_in('male_animal', with: 'Aardwolf_male')
+  click_button 'Board the ark'
+end

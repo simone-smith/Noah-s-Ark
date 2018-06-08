@@ -1,7 +1,12 @@
 <h1>Animals safely stowed in the ark!</h1>
 <ul>
- <% @animals.each_slice(2) do |animal| %>
-   <li><%= "#{animal[0]}, #{animal[1]}"%></li>
+ <% @animals.each do |pair| %>
+   <li><%= "#{pair[0]}, #{pair[1]}, #{pair[2]}"%>
+     <form action='/disease' method='post' id=<%="#{pair[1]}"%>>
+       <input type='text' name='disease'/>
+       <input type='submit' value='Record disease'/>
+    </form>
+   </li>
  <% end %>
 </ul>
 
